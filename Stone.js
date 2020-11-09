@@ -1,5 +1,5 @@
 class Stone {
-    constructor(x,y,width,height){
+    constructor(x,y,r){
     
         var options={
 
@@ -13,11 +13,10 @@ class Stone {
 
             this.x=x;
             this.y=y;
-            this.width=width;
-            this.height=height;
-
+            this.r=r;
+            
             this.image=loadImage("sprites/Plucking mangoes/stone.png");
-            this.body=Bodies.rectangle(this.x,this.y,this.width,this.height, options);
+            this.body=Bodies.circle(this.x,this.y,this.r/2, options);
             World.add(world,this.body);
 
     }
@@ -30,7 +29,7 @@ class Stone {
         translate(this.body.position.x, this.body.position.y);
         rotate(this.body.angle);
         imageMode(CENTER);
-        image(this.image, 0, 0, this.width, this.height);
+        image(this.image, 0, 0,this.r*2,this.r*2);
         pop();
 
 
